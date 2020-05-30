@@ -16,10 +16,12 @@ public class PersonService {
     public void updateEmail(Long personId, String newEmail) {
         Person person = personRepository.findById(personId).orElseThrow();
         person.setEmail(newEmail);
+        personRepository.save(person);
     }
 
     public void addNote(Long personId, Note note) {
         Person person = personRepository.findById(personId).orElseThrow();
         person.addNote(note);
+        personRepository.save(person);
     }
 }
